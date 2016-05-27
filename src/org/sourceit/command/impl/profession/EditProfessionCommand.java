@@ -12,8 +12,8 @@ public class EditProfessionCommand implements ICommand {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
         try {
-            Long applicantId = Long.parseLong(request.getParameter("id"));
-            Profession profession = provider.getProfession(applicantId);
+            Long professionId = Long.parseLong(request.getParameter("id"));
+            Profession profession = provider.getProfession(professionId);
             request.setAttribute("profession",profession);
         } catch (Exception e) {
             request.setAttribute("error", e);

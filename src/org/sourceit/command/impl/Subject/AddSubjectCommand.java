@@ -8,6 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 public class AddSubjectCommand implements ICommand {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
-        return null;
+        return "pages/applicant/edit_subject.jsp";
     }
 }

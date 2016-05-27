@@ -2,26 +2,43 @@ package org.sourceit.entities;
 
 public class SpecialitySubject extends Entity {
 
-    private Profession profession;
-    private Subject subject;
+    private long professionId;
+    private long subjectId;
+    private String professionName;
+    private String subjectName;
+
 
     public SpecialitySubject() {
         this.id = -1;
     }
 
-    public Profession getProfession() {
-        return profession;
+    public long getProfessionId() {
+        return professionId;
     }
 
-    public void setProfession(Profession profession) {
-        this.profession = profession;
+    public void setProfessionId(long professionId) {
+        this.professionId = professionId;
     }
 
-    public Subject getSubject() {
-        return subject;
+    public long getSubjectId() {
+        return subjectId;
     }
 
-    public void setSubject(Subject subject) {
-        this.subject = subject;
+    public void setSubjectId(long subjectId) {
+        this.subjectId = subjectId;
+    }
+    public String getProfessionName() {
+        return professionName;
+    }
+
+    public void setProfessionName(String professionName) {
+        this.professionName = professionName;
+    }
+    public String getSubjectName() {
+        return subjectName;
+    }
+
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
     }
 }

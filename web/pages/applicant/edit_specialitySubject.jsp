@@ -1,0 +1,36 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+<head>
+    <title><c:out value="${title}"/></title>
+    <%@include file="../include/style.jsp" %>
+</head>
+<body>
+<%@include file="../include/template.jsp" %>
+<div class="container">
+    <fieldset>
+        <legend><c:out value="${title}"/></legend>
+
+        <form method="post" action="controller?command=saveSpecialitySubject">
+            <c:choose>
+                <c:when test="${specialitySubject ne null}">
+                    <span>Profession Id</span>
+                    <input type="text" name="Profession_id"
+                           value="${specialitySubject.getProfessionId()}"/><br/>
+                    <span>Subject Id</span>
+                    <input type="text" name="Subject_id" value="${applicant.getSubjectId()}"/><br/>
+                    <input type="hidden" name="specialitySubject_id" value="${specialitySubject.getId()}"/><br/>
+                </c:when>
+                <c:otherwise>
+                    <span>Profession Id</span>
+                    <input type="text" name="Profession_id"/><br/>
+                    <span>Subject Id</span>
+                    <input type="text" name="Subject_id"/><br/>
+                </c:otherwise>
+            </c:choose>
+            <input type="submit" value="Save"/>
+        </form>
+    </fieldset>
+</div>
+</body>
+</html>

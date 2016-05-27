@@ -45,7 +45,6 @@ public enum ApplicantDBProvider {
                 applicant.setId(resultSet.getInt("applicant_id"));
                 applicant.setFirstName(resultSet.getString("first_name"));
                 applicant.setLastName(resultSet.getString("last_name"));
-                applicant.setProfessionName(resultSet.getString("profession_name"));
                 applicant.setProfessionId(resultSet.getInt("profession_id"));
                 applicant.setEntranceYear(resultSet.getInt("entrance_year"));
             }
@@ -73,14 +72,11 @@ public enum ApplicantDBProvider {
             Profession profession = null;
             while (resultSet.next()) {
                 applicant = new Applicant();
-                profession = new Profession();
-                profession.setProfessionName(resultSet.getString("profession_name"));
-                profession.setId(resultSet.getInt("profession_id"));
                 applicant.setEntranceYear(resultSet.getInt("entrance_year"));
                 applicant.setFirstName(resultSet.getString("first_name"));
                 applicant.setLastName(resultSet.getString("last_name"));
-                applicant.setProfessionName(resultSet.getString("profession_name"));
                 applicant.setProfessionId(resultSet.getInt("profession_id"));
+                applicant.setProfessionName(resultSet.getString("profession_name"));
                 applicant.setId(resultSet.getInt("applicant_id"));
                 applicants.add(applicant);
             }

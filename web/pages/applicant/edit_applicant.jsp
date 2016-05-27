@@ -34,11 +34,6 @@
                     <input type="text" name="last_name"/><br/>
                     <span>Profession</span>
                     <input type="text" name="profession_id"/><br/>
-                    <%--<select>--%>
-                        <%--<c:forEach items="${professions}" var="profession">--%>
-                            <%--<option value="${profession.getProfessionName()}">${profession.getProfessionName()}</option>--%>
-                        <%--</c:forEach>--%>
-                    <%--</select><br/>--%>
                     <span>Entrance Year</span>
                     <input type="text" name="entrance_year"/><br/>
                 </c:otherwise>
