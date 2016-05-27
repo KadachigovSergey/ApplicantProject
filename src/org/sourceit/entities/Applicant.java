@@ -4,13 +4,22 @@ import java.util.Locale;
 
 public class Applicant extends Entity {
 
+
     private long professionId;
+    private String professionName;
     private String lastName;
     private String firstName;
     private int entranceYear;
 
     public Applicant() {
         this.id = -1;
+    }
+    public String getProfessionName() {
+        return professionName;
+    }
+
+    public void setProfessionName(String professionName) {
+        this.professionName = professionName;
     }
 
     public Long getProfessionId() {

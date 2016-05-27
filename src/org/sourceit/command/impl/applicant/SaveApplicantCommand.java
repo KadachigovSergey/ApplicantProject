@@ -24,7 +24,6 @@ public class SaveApplicantCommand implements ICommand {
         if (request.getParameter("applicant_id") != null) {
             applicant.setId(Long.parseLong(request.getParameter("applicant_id")));
         }
-
         try {
             provider.saveApplicant(applicant);
         } catch (Exception e) {

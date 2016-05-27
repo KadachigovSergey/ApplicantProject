@@ -25,7 +25,7 @@ public enum ApplicantDBProvider {
     ApplicantDBProvider() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_applicant", "root", "admin");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_applicant", "root", "FCNHJYJVJgbntr531");
         } catch (ClassNotFoundException | SQLException e) {
             System.err.println("Class not found: com.mysql.jdbc.Driver " + e);
             throw new RuntimeException("Class not found: com.mysql.jdbc.Driver");
@@ -45,6 +45,7 @@ public enum ApplicantDBProvider {
                 applicant.setId(resultSet.getInt("applicant_id"));
                 applicant.setFirstName(resultSet.getString("first_name"));
                 applicant.setLastName(resultSet.getString("last_name"));
+                applicant.setProfessionName(resultSet.getString("profession_name"));
                 applicant.setProfessionId(resultSet.getInt("profession_id"));
                 applicant.setEntranceYear(resultSet.getInt("entrance_year"));
             }
@@ -78,6 +79,7 @@ public enum ApplicantDBProvider {
                 applicant.setEntranceYear(resultSet.getInt("entrance_year"));
                 applicant.setFirstName(resultSet.getString("first_name"));
                 applicant.setLastName(resultSet.getString("last_name"));
+                applicant.setProfessionName(resultSet.getString("profession_name"));
                 applicant.setProfessionId(resultSet.getInt("profession_id"));
                 applicant.setId(resultSet.getInt("applicant_id"));
                 applicants.add(applicant);

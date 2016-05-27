@@ -42,7 +42,7 @@
                         <c:out value="${applicant.getEntranceYear()}"/>
                     </td>
                     <td>
-                        <a title="Edit ${applicant.getFirstName()} ${applicant.getLastName()}"
+                        <a title="Edit ${applicant.getFirstName()} ${applicant.getLastName()} "
                            href="controller?command=editApplicant&id=${applicant.getId()}">
                             <i class="fa fa-pencil"></i></a>
                         <a title="Delete ${applicant.getFirstName()} ${applicant.getLastName()}"
