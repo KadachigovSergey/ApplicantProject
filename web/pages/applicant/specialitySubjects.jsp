@@ -34,7 +34,7 @@
                     </td>
                     <td>
                         <a title="Edit ${specialitySubject.getSubjectName()} ${specialitySubject.getProfessionName()}"
-                           href="controller?command=editApplicant&id=${specialitySubject.getId()}">
+                           href="controller?command=editSpecialitySubject=${specialitySubject.getId()}">
                             <i class="fa fa-pencil"></i></a>
                         <a title="Delete ${specialitySubject.getSubjectName()} ${specialitySubject.getProfessionName()}"
                            href="controller?command=deleteSpecialitySubject&id=${specialitySubject.getId()}">

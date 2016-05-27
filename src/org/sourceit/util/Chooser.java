@@ -41,10 +41,10 @@ public enum Chooser {
 
         // commands for speciality subjects
         commandMap.put("specSubjects", new SpecialitySubjectCommand());
-        commandMap.put("addSpecSubject", new AddSpecialitySubjectCommand());
-        commandMap.put("saveSpecSubject", new SaveSpecialitySubjectCommand());
-        commandMap.put("deleteSpecSubject", new DeleteSpecialitySubjectCommand());
-        commandMap.put("editSpecSubject", new EditSpecialitySubjectCommand());
+        commandMap.put("addSpecialitySubject", new AddSpecialitySubjectCommand());
+        commandMap.put("saveSpecialitySubject", new SaveSpecialitySubjectCommand());
+        commandMap.put("deleteSpecialitySubject", new DeleteSpecialitySubjectCommand());
+        commandMap.put("editSpecialitySubject", new EditSpecialitySubjectCommand());
 
         // commands for applicant results
         commandMap.put("applicantResults", new ApplicantResultCommand());
