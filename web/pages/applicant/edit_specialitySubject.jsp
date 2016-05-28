@@ -15,10 +15,9 @@
             <c:choose>
                 <c:when test="${specialitySubject ne null}">
                     <span>Profession Id</span>
-                    <input type="text" name="Profession_id"
-                           value="${specialitySubject.getProfessionId()}"/><br/>
+                    <input type="text" name="Profession_id" value="${specialitySubject.getProfessionId()}"/><br/>
                     <span>Subject Id</span>
-                    <input type="text" name="Subject_id" value="${applicant.getSubjectId()}"/><br/>
+                    <input type="text" name="Subject_id" value="${specialitySubject.getSubjectId()}"/><br/>
                     <input type="hidden" name="specialitySubject_id" value="${specialitySubject.getId()}"/><br/>
                 </c:when>
                 <c:otherwise>

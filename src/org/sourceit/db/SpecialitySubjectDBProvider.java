@@ -1,7 +1,5 @@
 package org.sourceit.db;
 
-import org.sourceit.entities.Applicant;
-import org.sourceit.entities.Profession;
 import org.sourceit.entities.SpecialitySubject;
 
 import java.sql.*;
@@ -34,9 +32,9 @@ public enum  SpecialitySubjectDBProvider {
             while (resultSet.next()) {
                 specialitySubject = new SpecialitySubject();
                 specialitySubject.setId(resultSet.getInt("SP_SB_ID"));
-//                specialitySubject.setProfessionName(resultSet.getString("Profession_name"));
+                specialitySubject.setProfessionName(resultSet.getString("Profession_name"));
                 specialitySubject.setProfessionId(resultSet.getLong("Profession_ID"));
-//                specialitySubject.setSubjectName(resultSet.getString("Subject_name"));
+                specialitySubject.setSubjectName(resultSet.getString("Subject_name"));
                 specialitySubject.setSubjectId(resultSet.getLong("Subject_Id"));
             }
         } catch (SQLException e) {
@@ -57,20 +55,14 @@ public enum  SpecialitySubjectDBProvider {
 
         try {
             statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM SPECIALITY_SUBJECT"+
-                    " JOIN profession ON SPECIALITY_SUBJECT.PROFESSION_ID=profession.PROFESSION_ID"+
-                    " JOIN subject ON SPECIALITY_SUBJECT.subject_ID=subject.subject_ID" );
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM SPECIALITY_SUBJECT JOIN( profession,subject) ON SPECIALITY_SUBJECT.PROFESSION_ID=profession.PROFESSION_ID and SPECIALITY_SUBJECT.SUBJECT_ID=SUBJECT.SUBJECT_ID" );
             SpecialitySubject specialitySubject = null;
-            Profession profession = null;
             while (resultSet.next()) {
                 specialitySubject = new SpecialitySubject();
-                profession = new Profession();
-                profession.setProfessionName(resultSet.getString("profession_name"));
-                profession.setId(resultSet.getInt("profession_id"));
                 specialitySubject.setProfessionId(resultSet.getInt("profession_id"));
                 specialitySubject.setProfessionName(resultSet.getString("profession_name"));
-                specialitySubject.setSubjectId(resultSet.getInt("profession_id"));
-                specialitySubject.setSubjectName(resultSet.getString("profession_name"));
+                specialitySubject.setSubjectId(resultSet.getInt("subject_id"));
+                specialitySubject.setSubjectName(resultSet.getString("subject_name"));
                 specialitySubject.setId(resultSet.getInt("SP_SB_ID"));
                 specialitySubjects.add(specialitySubject);
             }
@@ -113,7 +105,7 @@ public enum  SpecialitySubjectDBProvider {
         PreparedStatement preparedStatement = null;
 
         try {
-            preparedStatement = connection.prepareStatement("DELETE FROM SPECIALITY_SUBJECT WHERE applicant_id=?");
+            preparedStatement = connection.prepareStatement("DELETE FROM SPECIALITY_SUBJECT WHERE SP_SB_id=?");
 
             preparedStatement.setInt(1, (int) specialitySubjectId);
             preparedStatement.executeUpdate();

@@ -15,7 +15,7 @@ public class SaveSpecialitySubjectCommand implements ICommand {
         SpecialitySubject specialitySubject = new SpecialitySubject();
 
         specialitySubject.setProfessionId(Long.parseLong(request.getParameter("Profession_id")));
-        specialitySubject.setSubjectId(Long.parseLong(request.getParameter("subject_id")));
+        specialitySubject.setSubjectId(Long.parseLong(request.getParameter("Subject_id")));
         if (request.getParameter("SP_SB_ID_id") != null) {
             specialitySubject.setId(Long.parseLong(request.getParameter("SP_SB_ID")));
         }

@@ -21,10 +21,10 @@
                 <th>Profession Name</th>
                 <th>Subject Name</th>
             </tr>
-            <c:forEach items="${applicants}" var="specialitySubject">
+            <c:forEach items="${specialitySubjects}" var="specialitySubject">
                 <tr>
                     <td>
-                        <c:out value="${apecialitySubject.getId()}"/>
+                        <c:out value="${specialitySubject.getId()}"/>
                     </td>
                     <td>
                         <c:out value="${specialitySubject.getProfessionName()}"/>

@@ -40,7 +40,7 @@ public enum Chooser {
         commandMap.put("editSubject", new EditSubjectCommand());
 
         // commands for speciality subjects
-        commandMap.put("specSubjects", new SpecialitySubjectCommand());
+        commandMap.put("specialitySubjects", new SpecialitySubjectCommand());
         commandMap.put("addSpecialitySubject", new AddSpecialitySubjectCommand());
         commandMap.put("saveSpecialitySubject", new SaveSpecialitySubjectCommand());
         commandMap.put("deleteSpecialitySubject", new DeleteSpecialitySubjectCommand());
