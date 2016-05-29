@@ -13,15 +13,14 @@ public class EditSpecialitySubjectCommand implements ICommand {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
         try {
-            Long SpecialitySubjectId = Long.parseLong(request.getParameter("id"));
-            SpecialitySubject specialitySubject = provider.getSpecialitySubject(SpecialitySubjectId);
+            Long specialitySubjectId = Long.parseLong(request.getParameter("id"));
+            SpecialitySubject specialitySubject = provider.getSpecialitySubject(specialitySubjectId);
             request.setAttribute("specialitySubject", specialitySubject);
         } catch (Exception e) {
-            request.setAttribute("error", e);
             return "pages/error.jsp";
         }
 
-        request.setAttribute("title", "Edit speciality subject");
+        request.setAttribute("title", "Edit Speciality Subject");
         return "pages/applicant/edit_specialitySubject.jsp";
     }
 }

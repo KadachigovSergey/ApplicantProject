@@ -14,7 +14,7 @@
         <form method="post" action="controller?command=saveSubject">
             <c:choose>
                 <c:when test="${subject ne null}">
-                    <span>First Name</span>
+                    <span>Subject Name</span>
                     <input type="text" name="subject_name"
                            value="${subject.getSubjectName()}"/><br/>
                     <input type="hidden" name="subject_id" value="${subject.getId()}"/><br/>

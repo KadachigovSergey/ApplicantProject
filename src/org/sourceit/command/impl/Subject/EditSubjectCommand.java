@@ -21,7 +21,7 @@ public class EditSubjectCommand implements ICommand {
             return "pages/error.jsp";
         }
 
-        request.setAttribute("title", "Edit subject");
+        request.setAttribute("title", "Edit Subject");
         return "pages/applicant/edit_subject.jsp";
     }
 }

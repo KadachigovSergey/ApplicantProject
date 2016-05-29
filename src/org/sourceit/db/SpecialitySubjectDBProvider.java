@@ -32,19 +32,18 @@ public enum  SpecialitySubjectDBProvider {
             while (resultSet.next()) {
                 specialitySubject = new SpecialitySubject();
                 specialitySubject.setId(resultSet.getInt("SP_SB_ID"));
-                specialitySubject.setProfessionName(resultSet.getString("Profession_name"));
                 specialitySubject.setProfessionId(resultSet.getLong("Profession_ID"));
-                specialitySubject.setSubjectName(resultSet.getString("Subject_name"));
                 specialitySubject.setSubjectId(resultSet.getLong("Subject_Id"));
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             if (preparedStatement != null) {
                 preparedStatement.close();
             }
-        }
 
+        }
         return specialitySubject;
     }
 
@@ -89,7 +88,7 @@ public enum  SpecialitySubjectDBProvider {
                         " SUBJECT_ID=?, WHERE SP_SB_ID=?");
                 preparedStatement.setLong(1, specialitySubject.getProfessionId());
                 preparedStatement.setLong(2, specialitySubject.getSubjectId());
-                preparedStatement.setInt(3, (int) specialitySubject.getId());
+                preparedStatement.setInt(3, (int)(long)specialitySubject.getId());
             }
             preparedStatement.executeUpdate();
         } catch (SQLException e) {

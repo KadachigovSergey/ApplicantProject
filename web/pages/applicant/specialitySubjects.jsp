@@ -18,7 +18,9 @@
         <table>
             <tr>
                 <th>ID</th>
+                <th>Profession ID</th>
                 <th>Profession Name</th>
+                <th>Subject ID</th>
                 <th>Subject Name</th>
             </tr>
             <c:forEach items="${specialitySubjects}" var="specialitySubject">
@@ -27,16 +29,22 @@
                         <c:out value="${specialitySubject.getId()}"/>
                     </td>
                     <td>
+                        <c:out value="${specialitySubject.getProfessionId()}"/>
+                    </td>
+                    <td>
                         <c:out value="${specialitySubject.getProfessionName()}"/>
+                    </td>
+                    <td>
+                        <c:out value="${specialitySubject.getSubjectId()}"/>
                     </td>
                     <td>
                         <c:out value="${specialitySubject.getSubjectName()}"/>
                     </td>
                     <td>
-                        <a title="Edit ${specialitySubject.getSubjectName()} ${specialitySubject.getProfessionName()}"
-                           href="controller?command=editSpecialitySubject=${specialitySubject.getId()}">
+                        <a title="Edit ${specialitySubject.getSubjectId()} ${specialitySubject.getProfessionId()}"
+                           href="controller?command=editSpecialitySubject&id=${specialitySubject.getId()}">
                             <i class="fa fa-pencil"></i></a>
-                        <a title="Delete ${specialitySubject.getSubjectName()} ${specialitySubject.getProfessionName()}"
+                        <a title="Delete ${specialitySubject.getSubjectId()} ${specialitySubject.getProfessionId()}"
                            href="controller?command=deleteSpecialitySubject&id=${specialitySubject.getId()}">
                             <i class="fa fa-trash-o"></i>
                         </a>

@@ -29,9 +29,8 @@
                         <c:out value="${subject.getSubjectName()}"/>
                     </td>
                     <td>
-                        <a title="Edit ${subject.getSubjectName()} "
-                           href="controller?command=editSubject&id=${subject.getId()}">
-                            <i class="fa fa-pencil"></i></a>
+                        <a  href="controller?command=editSubject&id=${subject.getId()}">
+                            <i class="fa fa-pencil"></i></a >
                         <a title="Delete ${subject.getSubjectName()} "
                            href="controller?command=deleteSubject&id=${subject.getId()}">
                             <i class="fa fa-trash-o"></i>
