@@ -29,8 +29,7 @@ public enum  SpecialitySubjectDBProvider {
             preparedStatement.setInt(1, (int) specialitySubjectId);
 
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                specialitySubject = new SpecialitySubject();
+            while (resultSet.next()) {                specialitySubject = new SpecialitySubject();
                 specialitySubject.setId(resultSet.getInt("SP_SB_ID"));
                 specialitySubject.setProfessionId(resultSet.getLong("Profession_ID"));
                 specialitySubject.setSubjectId(resultSet.getLong("Subject_Id"));

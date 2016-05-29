@@ -42,7 +42,7 @@ public enum ApplicantDBProvider {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 applicant = new Applicant();
-                applicant.setId(resultSet.getInt("applicant_id"));
+                applicant.setId(resultSet.getInt("APPLICANT_ID"));
                 applicant.setFirstName(resultSet.getString("first_name"));
                 applicant.setLastName(resultSet.getString("last_name"));
                 applicant.setProfessionId(resultSet.getInt("profession_id"));
