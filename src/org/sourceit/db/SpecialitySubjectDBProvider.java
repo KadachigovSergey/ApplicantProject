@@ -84,7 +84,7 @@ public enum  SpecialitySubjectDBProvider {
 
             } else {
                 preparedStatement = connection.prepareStatement("UPDATE SPECIALITY_SUBJECT SET PROFESSION_ID=?," +
-                        " SUBJECT_ID=?, WHERE SP_SB_ID=?");
+                        " SUBJECT_ID=? WHERE SP_SB_ID=?");
                 preparedStatement.setLong(1, specialitySubject.getProfessionId());
                 preparedStatement.setLong(2, specialitySubject.getSubjectId());
                 preparedStatement.setInt(3, (int)(long)specialitySubject.getId());
