@@ -2,7 +2,6 @@ package org.sourceit.command.impl.specialitySubject;
 
 import org.sourceit.command.ICommand;
 import org.sourceit.db.SpecialitySubjectDBProvider;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

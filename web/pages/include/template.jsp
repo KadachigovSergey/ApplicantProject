@@ -6,7 +6,7 @@
         <li><a href="controller?command=applicants">Applicants</a></li>
         <li><a href="controller?command=professions">Professions</a></li>
         <li><a href="controller?command=subjects">Subjects</a></li>
-        <li><a href="controller?command=specialitySubjects">Speciality Subject</a></li>
+        <li><a href="controller?command=professionSubjects">Speciality Subject</a></li>
         <li><a href="controller?command=applicantResults">Applicant Result</a></li>
     </ul>
 </div>

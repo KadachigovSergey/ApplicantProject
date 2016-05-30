@@ -2,9 +2,7 @@ package org.sourceit.command.impl.Subject;
 
 import org.sourceit.command.ICommand;
 import org.sourceit.db.SubjectDBProvider;
-import org.sourceit.entities.Applicant;
 import org.sourceit.entities.Subject;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

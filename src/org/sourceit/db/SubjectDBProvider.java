@@ -8,14 +8,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public enum  SubjectDBProvider {
-    INSTANCE;
 
+    INSTANCE;
     private Connection connection;
 
     SubjectDBProvider() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_applicant", "root", "FCNHJYJVJgbntr531");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_applicant", "root",
+                    "FCNHJYJVJgbntr531");
         } catch (ClassNotFoundException | SQLException e) {
             System.err.println("Class not found: com.mysql.jdbc.Driver " + e);
             throw new RuntimeException("Class not found: com.mysql.jdbc.Driver");
@@ -48,14 +49,13 @@ public enum  SubjectDBProvider {
 
     public List<Subject> getSubjects() throws Exception {
 
-        Statement statement = null;
+        Statement statement;
         List<Subject> subjects = new ArrayList<>();
 
         try {
             statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM subject");
-            Subject subject = null;
-            Profession profession = null;
+            Subject subject;
             while (resultSet.next()) {
                 subject = new Subject();
                 subject.setId(resultSet.getInt("Subject_id"));
@@ -65,23 +65,18 @@ public enum  SubjectDBProvider {
         } catch (SQLException e) {
             throw new Exception(e);
         }
-
         return subjects;
     }
 
     public void saveSubject(Subject subject) throws Exception {
-        PreparedStatement preparedStatement = null;
 
+        PreparedStatement preparedStatement = null;
         try {
             if (subject.getId() == -1) {
                 preparedStatement = connection.prepareStatement("INSERT INTO Subject (Subject_name) VALUES (?) ");
-
                 preparedStatement.setString(1, subject.getSubjectName());
-
-
             } else {
                 preparedStatement = connection.prepareStatement("UPDATE Subject SET Subject_name=? WHERE Subject_id=?");
-
                 preparedStatement.setString(1, subject.getSubjectName());
                 preparedStatement.setInt(2, (int) subject.getId());
             }
@@ -96,11 +91,10 @@ public enum  SubjectDBProvider {
     }
 
     public void deleteSubject(long subjectId) throws Exception {
-        PreparedStatement preparedStatement = null;
 
+        PreparedStatement preparedStatement = null;
         try {
             preparedStatement = connection.prepareStatement("DELETE FROM Subject WHERE Subject_id=?");
-
             preparedStatement.setInt(1, (int) subjectId);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {

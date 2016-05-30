@@ -1,12 +1,9 @@
 package org.sourceit.db;
 
 import org.sourceit.entities.ApplicantResult;
-import org.sourceit.entities.Profession;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
 
 public enum  ApplicantResultDBProvider {
     INSTANCE;
@@ -15,7 +12,8 @@ public enum  ApplicantResultDBProvider {
     ApplicantResultDBProvider() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_applicant", "root", "FCNHJYJVJgbntr531");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_applicant", "root",
+                    "FCNHJYJVJgbntr531");
         } catch (ClassNotFoundException | SQLException e) {
             System.err.println("Class not found: com.mysql.jdbc.Driver " + e);
             throw new RuntimeException("Class not found: com.mysql.jdbc.Driver");
@@ -26,17 +24,16 @@ public enum  ApplicantResultDBProvider {
         PreparedStatement preparedStatement = null;
         ApplicantResult applicantResult = null;
         try {
-            preparedStatement = connection.prepareStatement("SELECT * FROM APPLICANT_RESULT WHERE APPLICANT_RESULT_id=?");
+            preparedStatement = connection.prepareStatement("SELECT * FROM APPLICANT_RESULT " +
+                    "WHERE APPLICANT_RESULT_id=?");
             preparedStatement.setInt(1, (int) applicantResultID);
-
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 applicantResult = new ApplicantResult();
-                applicantResult.setId(resultSet.getInt("APPLICANT_RESULT_ID"));
-                applicantResult.setApplicantId(resultSet.getLong("APPLICANT_ID"));
-                applicantResult.setSubjectId(resultSet.getLong("SUBJECT_ID"));
-                applicantResult.setMark(resultSet.getInt("MARK"));
-
+                applicantResult.setId(resultSet.getInt("applicant_result_id"));
+                applicantResult.setApplicantId(resultSet.getLong("applicant_id"));
+                applicantResult.setSubjectId(resultSet.getLong("subject_id"));
+                applicantResult.setMark(resultSet.getInt("mark"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -45,33 +42,31 @@ public enum  ApplicantResultDBProvider {
                 preparedStatement.close();
             }
         }
-
         return applicantResult;
     }
 
-    public List<ApplicantResult> getApplicantResult() throws Exception {
+    public List<ApplicantResult> getApplicantResults() throws Exception {
 
-        Statement statement = null;
+        Statement statement;
         List<ApplicantResult> applicantResults = new ArrayList<>();
-
         try {
             statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM APPLICANT_RESULT" +
-                    " JOIN profession ON applicant.PROFESSION_ID=profession.PROFESSION_ID");
-            ApplicantResult applicantResult = null;
-            Profession profession = null;
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM APPLICANT_RESULT " +
+                    "JOIN (APPLICANT,SUBJECT) ON APPLICANT_RESULT.APPLICANT_ID=APPLICANT.APPLICANT_ID AND APPLICANT_RESULT.SUBJECT_ID=SUBJECT.SUBJECT_ID");
+            ApplicantResult applicantResult;
             while (resultSet.next()) {
                 applicantResult = new ApplicantResult();
                 applicantResult.setId(resultSet.getInt("APPLICANT_RESULT_ID"));
                 applicantResult.setApplicantId(resultSet.getLong("APPLICANT_ID"));
+                applicantResult.setApplicantName(resultSet.getString("LAST_NAME"));
                 applicantResult.setSubjectId(resultSet.getLong("SUBJECT_ID"));
+                applicantResult.setSubjectName(resultSet.getString("SUBJECT_NAME"));
                 applicantResult.setMark(resultSet.getInt("MARK"));
                 applicantResults.add(applicantResult);
             }
         } catch (SQLException e) {
             throw new Exception(e);
         }
-
         return applicantResults;
     }
 
@@ -80,25 +75,22 @@ public enum  ApplicantResultDBProvider {
 
         try {
             if (applicantResult.getId() == -1) {
-                System.out.println("new applicant result");
-                preparedStatement = connection.prepareStatement("INSERT INTO APPLICANT_RESULT (first_name, last_name," +
-                        " profession_id, entrance_year) VALUES (?, ?, ?) ");
+                preparedStatement = connection.prepareStatement("INSERT INTO APPLICANT_RESULT" +
+                        " (APPLICANT_ID, SUBJECT_ID, MARK) VALUES (?, ?, ?) ");
+                preparedStatement.setLong(1, applicantResult.getApplicantId());
+                preparedStatement.setLong(2, applicantResult.getSubjectId());
+                preparedStatement.setInt(3, applicantResult.getMark());
 
-//                preparedStatement.setString(1, applicantResult.getFirstName());
-//                preparedStatement.setString(2, applicantResult.getLastName());
-//                preparedStatement.setInt(3, (int) (long) applicantResult.getProfessionId());
 
 
             } else {
-                System.out.println("update applicant result");
-                preparedStatement = connection.prepareStatement("UPDATE applicant SET first_name=?, last_name=?," +
-                        " profession_id=?, entrance_year=?  WHERE applicant_id=?");
-
-//                preparedStatement.setString(1, applicantResult.getFirstName());
-//                preparedStatement.setString(2, applicantResult.getLastName());
-//                preparedStatement.setInt(3, (int) (long) applicantResult.getProfessionId());
-//                preparedStatement.setInt(4, applicantResult.getEntranceYear());
-//                preparedStatement.setInt(5, (int) applicantResult.getId());
+                System.out.println("update APPLICANT RESULT result");
+                preparedStatement = connection.prepareStatement("UPDATE APPLICANT_RESULT" +
+                        " SET APPLICANT_ID=?, SUBJECT_ID=?, MARK=? WHERE APPLICANT_RESULT_ID=?");
+                preparedStatement.setLong(1, applicantResult.getApplicantId());
+                preparedStatement.setLong(2, applicantResult.getSubjectId());
+                preparedStatement.setInt(3, applicantResult.getMark());
+                preparedStatement.setInt(4, (int) (long) applicantResult.getId());
             }
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -110,21 +102,21 @@ public enum  ApplicantResultDBProvider {
         }
     }
 
-//    public void deleteApplicantResult(long applicantId) throws Exception {
-//        PreparedStatement preparedStatement = null;
-//
-//        try {
-//            preparedStatement = connection.prepareStatement("DELETE FROM applicant WHERE applicant_id=?");
-//
-//            preparedStatement.setInt(1, (int) applicantId);
-//            preparedStatement.executeUpdate();
-//        } catch (SQLException e) {
-//            throw new Exception(e);
-//        } finally {
-//            if (preparedStatement != null) {
-//                preparedStatement.close();
-//            }
-//        }
-//    }
+    public void deleteApplicantResult(long applicantResultId) throws Exception {
+        PreparedStatement preparedStatement = null;
+
+        try {
+            preparedStatement = connection.prepareStatement("DELETE FROM APPLICANT_RESULT WHERE APPLICANT_RESULT_ID=?");
+
+            preparedStatement.setInt(1, (int) applicantResultId);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new Exception(e);
+        } finally {
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+        }
+    }
 
 }

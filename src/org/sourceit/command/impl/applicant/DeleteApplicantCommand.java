@@ -2,7 +2,6 @@ package org.sourceit.command.impl.applicant;
 
 import org.sourceit.command.ICommand;
 import org.sourceit.db.ApplicantDBProvider;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

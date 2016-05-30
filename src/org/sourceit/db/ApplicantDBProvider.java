@@ -1,25 +1,12 @@
 package org.sourceit.db;
 
 import org.sourceit.entities.*;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * You must finish implementation of this class.
- * Methods:
- * -- getApplicant
- * -- getApplicants
- * -- saveApplicant
- * -- deleteApplicant
- * <p>
- * TODO: And your task is add similar methods for Subject, SpecialitySubject, ApplicantResult
- */
 public enum ApplicantDBProvider {
-
     INSTANCE;
-
     private Connection connection;
 
     ApplicantDBProvider() {
@@ -68,8 +55,7 @@ public enum ApplicantDBProvider {
             statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM applicant" +
                     " JOIN profession ON applicant.PROFESSION_ID=profession.PROFESSION_ID");
-            Applicant applicant = null;
-            Profession profession = null;
+            Applicant applicant;
             while (resultSet.next()) {
                 applicant = new Applicant();
                 applicant.setEntranceYear(resultSet.getInt("entrance_year"));
@@ -83,7 +69,6 @@ public enum ApplicantDBProvider {
         } catch (SQLException e) {
             throw new Exception(e);
         }
-
         return applicants;
     }
 
@@ -128,7 +113,6 @@ public enum ApplicantDBProvider {
         try {
             System.out.println("getSpecialitySubject222");
             preparedStatement = connection.prepareStatement("DELETE FROM applicant WHERE applicant_id=?");
-
             preparedStatement.setInt(1, (int) applicantId);
             preparedStatement.executeUpdate();
             System.out.println("getSpecialitySubject111");

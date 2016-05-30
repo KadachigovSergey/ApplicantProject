@@ -1,26 +1,23 @@
 package org.sourceit.db;
 
 import org.sourceit.entities.*;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 public enum  ProfessionDBProvider {
-
     INSTANCE;
     private Connection connection;
+
     ProfessionDBProvider(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_applicant", "root", "FCNHJYJVJgbntr531");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_applicant", "root",
+                    "FCNHJYJVJgbntr531");
         }catch (ClassNotFoundException|SQLException e){
             System.out.printf("Class not found: com.mysql.jdbc.Driver " + e);
         }
     }
-
 
     public Profession getProfession(long professionId) throws Exception {
         PreparedStatement preparedStatement = null;
@@ -47,13 +44,13 @@ public enum  ProfessionDBProvider {
 
     public List<Profession> getProfession() throws Exception {
 
-        Statement statement = null;
+        Statement statement;
         List<Profession> professions = new ArrayList<>();
 
         try {
             statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM profession");
-            Profession profession = null;
+            Profession profession;
             while (resultSet.next()) {
                 profession = new Profession();
                 profession.setProfessionName(resultSet.getString("profession_name"));
@@ -75,8 +72,8 @@ public enum  ProfessionDBProvider {
                 preparedStatement.setString(1, profession.getProfessionName());
 
             } else {
-                preparedStatement = connection.prepareStatement("UPDATE profession SET profession_name=? WHERE profession_id=?");
-
+                preparedStatement = connection.prepareStatement("UPDATE profession " +
+                        "SET profession_name=? WHERE profession_id=?");
                 preparedStatement.setString(1, profession.getProfessionName());
             }
             preparedStatement.executeUpdate();

@@ -18,9 +18,9 @@
         <table>
             <tr>
                 <th>ID</th>
-                <th>Profession ID</th>
+                <%--<th>Profession ID</th>--%>
                 <th>Profession Name</th>
-                <th>Subject ID</th>
+                <%--<th>Subject ID</th>--%>
                 <th>Subject Name</th>
             </tr>
             <c:forEach items="${specialitySubjects}" var="specialitySubject">
@@ -28,15 +28,15 @@
                     <td>
                         <c:out value="${specialitySubject.getId()}"/>
                     </td>
-                    <td>
-                        <c:out value="${specialitySubject.getProfessionId()}"/>
-                    </td>
+                    <%--<td>--%>
+                        <%--<c:out value="${specialitySubject.getProfessionId()}"/>--%>
+                    <%--</td>--%>
                     <td>
                         <c:out value="${specialitySubject.getProfessionName()}"/>
                     </td>
-                    <td>
-                        <c:out value="${specialitySubject.getSubjectId()}"/>
-                    </td>
+                    <%--<td>--%>
+                        <%--<c:out value="${specialitySubject.getSubjectId()}"/>--%>
+                    <%--</td>--%>
                     <td>
                         <c:out value="${specialitySubject.getSubjectName()}"/>
                     </td>

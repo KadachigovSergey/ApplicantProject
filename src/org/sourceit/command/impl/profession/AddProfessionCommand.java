@@ -1,8 +1,6 @@
 package org.sourceit.command.impl.profession;
 
 import org.sourceit.command.ICommand;
-import org.sourceit.db.ProfessionDBProvider;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

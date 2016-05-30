@@ -6,7 +6,6 @@ import org.sourceit.command.impl.applicantResult.*;
 import org.sourceit.command.impl.profession.*;
 import org.sourceit.command.impl.Subject.*;
 import org.sourceit.command.impl.specialitySubject.*;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -52,11 +51,8 @@ public enum Chooser {
         commandMap.put("saveApplicantResult", new SaveApplicantResultCommand());
         commandMap.put("deleteApplicantResult", new DeleteApplicantResultCommand());
         commandMap.put("editApplicantResult", new EditApplicantResultCommand());
-
     }
-
     public ICommand chooseCommand(String command) {
         return commandMap.get(command);
     }
-
 }

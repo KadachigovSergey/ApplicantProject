@@ -21,7 +21,6 @@ public class ForwardFilter implements Filter {
         response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
         response.setHeader("Pragma", "no-cache");
         response.setDateHeader("Expires", 0);
-
         if (((HttpServletRequest) servletRequest).getMethod().equalsIgnoreCase("post")) {
             response.sendRedirect("controller?" + request.getQueryString());
         } else {
