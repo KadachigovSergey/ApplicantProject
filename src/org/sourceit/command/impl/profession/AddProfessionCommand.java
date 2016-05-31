@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 public class AddProfessionCommand implements ICommand {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
+        request.setAttribute("title", "Add Profession");
 
         return "pages/applicant/edit_profession.jsp";
     }

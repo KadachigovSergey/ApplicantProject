@@ -1,16 +1,20 @@
 //package org.sourceit.db;
 //
 //
-//import org.junit.Assert;
-//import org.junit.Before;
-//import org.junit.Test;
+//
+//
+//import org.testng.Assert;
 //import org.sourceit.entities.Profession;
+//import org.testng.annotations.Test;
+//
 //
 //import java.util.List;
 //
 //public class ApplicantDBProviderTest {
 //
 //    private ApplicantDBProvider provider = ApplicantDBProvider.INSTANCE;
+//    @Test
+//    public void dfds(){}
 //
 //    @Before
 //     public void beforeDelete() {

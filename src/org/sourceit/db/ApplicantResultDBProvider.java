@@ -52,7 +52,8 @@ public enum  ApplicantResultDBProvider {
         try {
             statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM APPLICANT_RESULT " +
-                    "JOIN (APPLICANT,SUBJECT) ON APPLICANT_RESULT.APPLICANT_ID=APPLICANT.APPLICANT_ID AND APPLICANT_RESULT.SUBJECT_ID=SUBJECT.SUBJECT_ID");
+                    "JOIN (APPLICANT,SUBJECT) ON APPLICANT_RESULT.APPLICANT_ID=APPLICANT.APPLICANT_ID " +
+                    "AND APPLICANT_RESULT.SUBJECT_ID=SUBJECT.SUBJECT_ID");
             ApplicantResult applicantResult;
             while (resultSet.next()) {
                 applicantResult = new ApplicantResult();
@@ -80,9 +81,6 @@ public enum  ApplicantResultDBProvider {
                 preparedStatement.setLong(1, applicantResult.getApplicantId());
                 preparedStatement.setLong(2, applicantResult.getSubjectId());
                 preparedStatement.setInt(3, applicantResult.getMark());
-
-
-
             } else {
                 System.out.println("update APPLICANT RESULT result");
                 preparedStatement = connection.prepareStatement("UPDATE APPLICANT_RESULT" +

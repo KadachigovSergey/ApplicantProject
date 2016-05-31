@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
+<html style= background-color:#e3f2ff;>
 <head>
     <title><c:out value="${title}"/></title>
     <%@include file="../include/style.jsp" %>
@@ -14,17 +14,17 @@
         <form method="post" action="controller?command=saveSubject">
             <c:choose>
                 <c:when test="${subject ne null}">
-                    <span>Subject Name</span>
-                    <input type="text" name="subject_name"
+                    <span style=" font-size:110%;" >Subject Name</span>
+                    <input style=" font-size:107%;" type="text" name="subject_name"
                            value="${subject.getSubjectName()}"/><br/>
                     <input type="hidden" name="subject_id" value="${subject.getId()}"/><br/>
                 </c:when>
                 <c:otherwise>
-                    <span>Subject Name</span>
-                    <input type="text" name="subject_name"/><br/>
+                    <span style=" font-size:110%;" >Subject Name</span>
+                    <input style=" font-size:107%;" type="text" name="subject_name"/><br/>
                 </c:otherwise>
             </c:choose>
-            <input type="submit" value="Save"/>
+            <input type="submit" value="Save"style= background-color:#306589;color:white;font-size:20px;/>
         </form>
     </fieldset>
 </div>

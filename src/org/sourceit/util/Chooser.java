@@ -1,6 +1,7 @@
 package org.sourceit.util;
 
 import org.sourceit.command.ICommand;
+import org.sourceit.command.impl.Main_Dashbord;
 import org.sourceit.command.impl.applicant.*;
 import org.sourceit.command.impl.applicantResult.*;
 import org.sourceit.command.impl.profession.*;
@@ -51,6 +52,8 @@ public enum Chooser {
         commandMap.put("saveApplicantResult", new SaveApplicantResultCommand());
         commandMap.put("deleteApplicantResult", new DeleteApplicantResultCommand());
         commandMap.put("editApplicantResult", new EditApplicantResultCommand());
+
+        commandMap.put("mainDashboard",new Main_Dashbord());
     }
     public ICommand chooseCommand(String command) {
         return commandMap.get(command);

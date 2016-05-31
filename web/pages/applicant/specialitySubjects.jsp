@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
+<html style= background-color:#e3f2ff;>
 <head>
     <title></title>
     <%@include file="../include/style.jsp" %>
@@ -22,9 +22,10 @@
                 <th>Profession Name</th>
                 <%--<th>Subject ID</th>--%>
                 <th>Subject Name</th>
+                <th>Actions</th>
             </tr>
             <c:forEach items="${specialitySubjects}" var="specialitySubject">
-                <tr>
+                <tr style=" font-size:110%;">
                     <td>
                         <c:out value="${specialitySubject.getId()}"/>
                     </td>
@@ -41,10 +42,12 @@
                         <c:out value="${specialitySubject.getSubjectName()}"/>
                     </td>
                     <td>
-                        <a title="Edit ${specialitySubject.getSubjectId()} ${specialitySubject.getProfessionId()}"
+                        <a style= "color:#2b2b2b;"
+                           title="Edit ${specialitySubject.getSubjectId()} ${specialitySubject.getProfessionId()}"
                            href="controller?command=editSpecialitySubject&id=${specialitySubject.getId()}">
                             <i class="fa fa-pencil"></i></a>
-                        <a title="Delete ${specialitySubject.getSubjectId()} ${specialitySubject.getProfessionId()}"
+                        <a style= "color:#2b2b2b;"
+                           title="Delete ${specialitySubject.getSubjectId()} ${specialitySubject.getProfessionId()}"
                            href="controller?command=deleteSpecialitySubject&id=${specialitySubject.getId()}">
                             <i class="fa fa-trash-o"></i>
                         </a>
@@ -55,7 +58,7 @@
     </fieldset>
     </c:otherwise>
     </c:choose>
-    <div class="add_button">
+    <div class="add_button" style= background-color:#306589;font-size:20px;>
         <i class="fa fa-plus-circle"></i>
         <a href="controller?command=addSpecialitySubject">Add new specialitySubject</a>
     </div>

@@ -7,18 +7,19 @@
     .header {
         width: 100%;
         height: 10%;
-        border: 1px solid silver;
-        background-color: cornflowerblue;
+        border: 1px solid #7aa0c0;
+        background-color: #597da2;
     }
     .header h2 {
         text-align: center;
     }
     .menu {
         width: 20%;
-        border: 1px solid silver;
+        height: 100%;
+        border: 1px solid #4cadc0;
         float: left;
         margin-top: 5px;
-        background-color: deeppink;
+        background-color: #47698e;
     }
     .menu ul {
         list-style: none;
@@ -36,7 +37,7 @@
         overflow-y: auto;
     }
     .container a {
-        color: black;
+        color: #e3f2ff;
     }
     table {
         cursor: default;

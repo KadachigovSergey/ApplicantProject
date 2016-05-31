@@ -75,6 +75,8 @@ public enum  ProfessionDBProvider {
                 preparedStatement = connection.prepareStatement("UPDATE profession " +
                         "SET profession_name=? WHERE profession_id=?");
                 preparedStatement.setString(1, profession.getProfessionName());
+                preparedStatement.setLong(2, profession.getId());
+
             }
             preparedStatement.executeUpdate();
         } catch (SQLException e) {

@@ -1,12 +1,17 @@
 <div class="header">
-    <h2><a class="header-link" href="/app">Main Dashboard</a></h2>
+    <h2><a style="font-size: 160%; "class="header-link" href="controller?command=mainDashboard">Main Dashboard</a></h2>
 </div>
-<div class="menu">
-    <ul>
-        <li><a href="controller?command=applicants">Applicants</a></li>
-        <li><a href="controller?command=professions">Professions</a></li>
-        <li><a href="controller?command=subjects">Subjects</a></li>
-        <li><a href="controller?command=professionSubjects">Speciality Subject</a></li>
-        <li><a href="controller?command=applicantResults">Applicant Result</a></li>
-    </ul>
+<div style=" font-size: 160%;" class="menu">
+
+        <p><a style=" padding-left:12%;" href="controller?command=applicants">Applicants</a></p>
+        <hr>
+        <p><a style=" padding-left:12%;"  href="controller?command=professions">Professions</a></p>
+        <hr>
+        <p><a style=" padding-left:12%;"  href="controller?command=subjects">Subjects</a></p>
+        <hr>
+        <p><a style=" padding-left:12%;"  href="controller?command=specialitySubjects">Speciality Subject</a></p>
+        <hr>
+        <p><a style=" padding-left:12%;"  href="controller?command=applicantResults">Applicant Result</a></p>
+        <hr>
+
 </div>

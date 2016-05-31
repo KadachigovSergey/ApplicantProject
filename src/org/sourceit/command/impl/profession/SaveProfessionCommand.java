@@ -12,6 +12,9 @@ public class SaveProfessionCommand implements ICommand {
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
         Profession profession = new Profession();
         profession.setProfessionName(request.getParameter("profession_name"));
+        if (request.getParameter("profession_id") != null) {
+            profession.setId(Long.parseLong(request.getParameter("profession_id")));
+        }
         try {
             provider.saveProfession(profession);
         } catch (Exception e) {

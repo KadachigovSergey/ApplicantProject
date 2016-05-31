@@ -53,7 +53,9 @@ public enum  SpecialitySubjectDBProvider {
         List<SpecialitySubject> specialitySubjects = new ArrayList<>();
         try {
             statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM SPECIALITY_SUBJECT JOIN( profession,subject) ON SPECIALITY_SUBJECT.PROFESSION_ID=profession.PROFESSION_ID and SPECIALITY_SUBJECT.SUBJECT_ID=SUBJECT.SUBJECT_ID" );
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM SPECIALITY_SUBJECT JOIN( profession,subject) " +
+                    "ON SPECIALITY_SUBJECT.PROFESSION_ID=profession.PROFESSION_ID " +
+                    "and SPECIALITY_SUBJECT.SUBJECT_ID=SUBJECT.SUBJECT_ID" );
             SpecialitySubject specialitySubject;
             while (resultSet.next()) {
                 specialitySubject = new SpecialitySubject();
