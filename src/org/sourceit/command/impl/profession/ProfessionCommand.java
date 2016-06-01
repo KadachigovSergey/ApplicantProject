@@ -13,7 +13,7 @@ public class ProfessionCommand implements ICommand {
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
         List<Profession> professions;
         try {
-            professions = provider.getProfession();
+            professions = provider.getProfessions();
         } catch (Exception e) {
             request.setAttribute("error", e);
             return "pages/error.jsp";

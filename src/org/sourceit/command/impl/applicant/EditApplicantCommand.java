@@ -22,7 +22,7 @@ public class EditApplicantCommand implements ICommand {
             return "pages/error.jsp";
         }
 
-        request.setAttribute("title", "Edit applicant");
+        request.setAttribute("title", "Edit Applicant");
         return "pages/applicant/edit_applicant.jsp";
     }
 }

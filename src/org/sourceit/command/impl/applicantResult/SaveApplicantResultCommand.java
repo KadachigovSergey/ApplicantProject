@@ -12,10 +12,14 @@ public class SaveApplicantResultCommand implements ICommand {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
         ApplicantResult applicantResult = new ApplicantResult();
-
-        applicantResult.setApplicantId(Long.parseLong(request.getParameter("applicant_id")));
-        applicantResult.setSubjectId(Long.parseLong(request.getParameter("subject_id")));
-        applicantResult.setMark(Integer.parseInt(request.getParameter("mark")));
+        try {
+            applicantResult.setApplicantId(Long.parseLong(request.getParameter("applicant_id")));
+            applicantResult.setSubjectId(Long.parseLong(request.getParameter("subject_id")));
+            applicantResult.setMark(Integer.parseInt(request.getParameter("mark")));
+        }catch (NumberFormatException nfe){
+        request.setAttribute("title", "Add Applicant Result");
+        return "pages/applicant/edit_applicantResult.jsp";
+    }
         if (request.getParameter("applicant_result_id") != null) {
             applicantResult.setId(Long.parseLong(request.getParameter("applicant_result_id")));
         }

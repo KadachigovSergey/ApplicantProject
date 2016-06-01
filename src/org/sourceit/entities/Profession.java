@@ -5,7 +5,6 @@ public class Profession extends Entity {
     public Profession() {
         this.id = -1;
     }
-
     public Profession(String professionName) {
         this();
         this.professionName = professionName;

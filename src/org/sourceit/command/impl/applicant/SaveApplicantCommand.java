@@ -14,11 +14,15 @@ public class SaveApplicantCommand implements ICommand {
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
 
         Applicant applicant = new Applicant();
-
-        applicant.setFirstName(request.getParameter("first_name"));
-        applicant.setLastName(request.getParameter("last_name"));
-        applicant.setProfessionId(Long.parseLong(request.getParameter("profession_id")));
-        applicant.setEntranceYear(Integer.parseInt(request.getParameter("entrance_year")));
+        try{
+            applicant.setFirstName(request.getParameter("first_name"));
+            applicant.setLastName(request.getParameter("last_name"));
+            applicant.setProfessionId(Long.parseLong(request.getParameter("profession_id")));
+            applicant.setEntranceYear(Integer.parseInt(request.getParameter("entrance_year")));
+        }catch (NumberFormatException nfe){
+            request.setAttribute("title", "Add Applicant");
+            return "pages/applicant/edit_applicant.jsp";
+        }
         if (request.getParameter("applicant_id") != null) {
             applicant.setId(Long.parseLong(request.getParameter("applicant_id")));
         }

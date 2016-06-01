@@ -31,8 +31,8 @@
     .container {
         float: right;
         width: 79%;
-        height: 89%;
-        border: 1px solid silver;
+        height:89%;
+        border: 4px solid #7797ac;
         margin-top: 5px;
         overflow-y: auto;
     }
@@ -47,12 +47,13 @@
         text-align: center;
     }
     .add_button {
-        border: 1px solid silver;
+        border: 2px solid #7aa0c0;
         margin-left: 5px;
         margin-top: 5px;
-        width: 25%;
+        width: 23%;
     }
     .add_button > * {
         padding-left: 5px;
+        color: white;
     }
 </style>

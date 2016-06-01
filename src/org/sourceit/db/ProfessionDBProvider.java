@@ -42,7 +42,7 @@ public enum  ProfessionDBProvider {
         return profession;
     }
 
-    public List<Profession> getProfession() throws Exception {
+    public  List<Profession> getProfessions() throws Exception {
 
         Statement statement;
         List<Profession> professions = new ArrayList<>();

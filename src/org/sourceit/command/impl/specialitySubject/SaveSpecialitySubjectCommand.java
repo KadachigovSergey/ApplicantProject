@@ -11,8 +11,13 @@ public class SaveSpecialitySubjectCommand implements ICommand {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
         SpecialitySubject specialitySubject = new SpecialitySubject();
-        specialitySubject.setProfessionId(Long.parseLong(request.getParameter("Profession_id")));
-        specialitySubject.setSubjectId(Long.parseLong(request.getParameter("Subject_id")));
+        try {
+            specialitySubject.setProfessionId(Long.parseLong(request.getParameter("Profession_id")));
+            specialitySubject.setSubjectId(Long.parseLong(request.getParameter("Subject_id")));
+        }catch (NumberFormatException nfe){
+        request.setAttribute("title", "Add Speciality Subject");
+        return "pages/applicant/edit_specialitySubject.jsp";
+    }
         if (request.getParameter("SP_SB_ID") != null) {
             specialitySubject.setId(Long.parseLong(request.getParameter("SP_SB_ID")));
         }

@@ -34,6 +34,11 @@
                     <input style=" font-size:107%;" type="text" name="last_name"/><br/>
                     <span style=" font-size:110%;" >Profession</span>
                     <input style=" font-size:107%;" type="text" name="profession_id"/><br/>
+                    <select>
+                    <c:forEach items="${professions}" var="profession">
+                    <option value="${profession.getProfessionName()}">${profession.getProfessionName()}</option>
+                    </c:forEach>
+                    </select><br/>
                     <span style=" font-size:110%;" >Entrance Year</span>
                     <input style=" font-size:107%;" type="text" name="entrance_year"/><br/>
                 </c:otherwise>

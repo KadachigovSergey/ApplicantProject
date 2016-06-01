@@ -58,7 +58,7 @@
     </c:choose>
     <div class="add_button" style= background-color:#306589;font-size:20px;>
         <i class="fa fa-plus-circle"></i>
-        <a href="controller?command=addApplicantResult">Add new applicant</a>
+        <a href="controller?command=addApplicantResult">Add new Applicant Result</a>
     </div>
 </div>
 </body>
