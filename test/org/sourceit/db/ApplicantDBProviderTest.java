@@ -1,12 +1,10 @@
 package org.sourceit.db;
+
 import org.sourceit.entities.Applicant;
-import org.sourceit.entities.Profession;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
-
-
 import java.util.List;
 
 public class ApplicantDBProviderTest {

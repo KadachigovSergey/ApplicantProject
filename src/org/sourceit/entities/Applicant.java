@@ -17,11 +17,9 @@ public class Applicant extends Entity {
         this.firstName = firstName;
         this.entranceYear = entranceYear;
     }
-
     public Applicant() {
         this.id = -1;
     }
-
     public String getProfessionName() {
         return professionName;
     }

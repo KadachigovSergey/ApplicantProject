@@ -2,6 +2,11 @@ package org.sourceit.entities;
 
 public class Subject extends Entity {
 
+    public Subject(String subjectName) {
+        this();
+        this.subjectName = subjectName;
+    }
+
     private String subjectName;
 
     public Subject() {

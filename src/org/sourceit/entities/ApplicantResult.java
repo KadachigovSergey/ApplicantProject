@@ -9,6 +9,17 @@ public class ApplicantResult extends Entity {
     private String applicantName;
     private String subjectName;
 
+    public ApplicantResult(long applicantId, long subjectId, int mark, String applicantFirstName,
+                           String applicantName, String subjectName) {
+        this();
+        this.applicantId = applicantId;
+        this.subjectId = subjectId;
+        this.mark = mark;
+        this.applicantFirstName = applicantFirstName;
+        this.applicantName = applicantName;
+        this.subjectName = subjectName;
+    }
+
     public ApplicantResult() {
         this.id = -1;
     }

@@ -15,16 +15,32 @@
             <c:choose>
                 <c:when test="${specialitySubject ne null}">
                     <span>Profession Id</span>
-                    <input type="text" name="Profession_id" value="${specialitySubject.professionId}"/><br/>
-                    <span>Subject Id</span>
-                    <input type="text" name="Subject_id" value="${specialitySubject.getSubjectId()}"/><br/>
+                    <select name="profession1">
+                        <c:forEach items="${professions1}" var="profession">
+                            <option value="${profession.getId()}">${profession.getProfessionName()}</option>
+                        </c:forEach>
+                    </select>
+                    <span STYLE="margin-left: 250px">Subject Id</span>
+                    <select name="subject">
+                        <c:forEach items="${subjects}" var="subject">
+                            <option value="${subject.getId()}">${subject.getSubjectName()}</option>
+                        </c:forEach>
+                    </select><br/>
                     <input type="hidden" name="SP_SB_ID" value="${specialitySubject.getId()}"/><br/>
                 </c:when>
                 <c:otherwise>
                     <span>Profession Id</span>
-                    <input type="text" name="Profession_id"/><br/>
-                    <span>Subject Id</span>
-                    <input type="text" name="Subject_id"/><br/>
+                    <select name="profession1">
+                        <c:forEach items="${professions1}" var="profession">
+                            <option value="${profession.getId()}">${profession.getProfessionName()}</option>
+                        </c:forEach>
+                    </select>
+                    <span STYLE="margin-left: 250px">Subject Id</span>
+                    <select name="subject">
+                        <c:forEach items="${subjects}" var="subject">
+                            <option value="${subject.getId()}">${subject.getSubjectName()}</option>
+                        </c:forEach>
+                    </select><br/>
                 </c:otherwise>
             </c:choose>
             <input type="submit" value="Save"style= background-color:#306589;color:white;font-size:20px;/>

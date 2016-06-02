@@ -5,6 +5,15 @@ public class SpecialitySubject extends Entity {
     private long professionId;
     private long subjectId;
     private String professionName;
+
+    public SpecialitySubject(long professionId, long subjectId, String professionName, String subjectName) {
+        this();
+        this.professionId = professionId;
+        this.subjectId = subjectId;
+        this.professionName = professionName;
+        this.subjectName = subjectName;
+    }
+
     private String subjectName;
 
 

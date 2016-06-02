@@ -2,9 +2,13 @@ package org.sourceit.command.impl.applicant;
 
 import org.sourceit.command.ICommand;
 import org.sourceit.db.ApplicantDBProvider;
+import org.sourceit.db.ProfessionDBProvider;
 import org.sourceit.entities.Applicant;
+import org.sourceit.entities.Profession;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 public class SaveApplicantCommand implements ICommand {
 
@@ -20,6 +24,15 @@ public class SaveApplicantCommand implements ICommand {
             applicant.setProfessionId(Long.parseLong(request.getParameter("profession")));
             applicant.setEntranceYear(Integer.parseInt(request.getParameter("entrance_year")));
         }catch (NumberFormatException nfe){
+            List<Profession> professions = null;
+
+            try {
+                professions = ProfessionDBProvider.INSTANCE.getProfessions();
+            } catch (Exception e) {
+                request.setAttribute("error", e);
+                return "pages/error.jsp";
+            }
+            request.setAttribute("professions", professions);
             request.setAttribute("title", "Add Applicant");
             return "pages/applicant/edit_applicant.jsp";
         }

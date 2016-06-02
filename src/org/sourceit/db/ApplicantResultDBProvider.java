@@ -32,7 +32,6 @@ public enum  ApplicantResultDBProvider {
                 applicantResult = new ApplicantResult();
                 applicantResult.setId(resultSet.getInt("applicant_result_id"));
                 applicantResult.setApplicantId(resultSet.getLong("applicant_id"));
-                applicantResult.setSubjectId(resultSet.getLong("subject_id"));
                 applicantResult.setMark(resultSet.getInt("mark"));
             }
         } catch (SQLException e) {
@@ -60,7 +59,6 @@ public enum  ApplicantResultDBProvider {
                 applicantResult.setId(resultSet.getInt("APPLICANT_RESULT_ID"));
                 applicantResult.setApplicantId(resultSet.getLong("APPLICANT_ID"));
                 applicantResult.setApplicantName(resultSet.getString("LAST_NAME"));
-                applicantResult.setSubjectId(resultSet.getLong("SUBJECT_ID"));
                 applicantResult.setSubjectName(resultSet.getString("SUBJECT_NAME"));
                 applicantResult.setMark(resultSet.getInt("MARK"));
                 applicantResults.add(applicantResult);
