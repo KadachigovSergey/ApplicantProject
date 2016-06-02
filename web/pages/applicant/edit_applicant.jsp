@@ -11,36 +11,35 @@
     <fieldset>
         <legend><c:out value="${title}"/></legend>
 
-        <form method="post" action="controller?command=saveApplicant">
+        <form style=" font-size:130%;" method="post" action="controller?command=saveApplicant">
             <c:choose>
                 <c:when test="${applicant ne null}">
-                    <span style=" font-size:110%;" >First Name</span>
-                    <input style=" font-size:107%;" type="text" name="first_name"
+                    <span>First Name</span >
+                    <input type="text" name="first_name"
                            value="${applicant.getFirstName()}"/><br/>
-                    <span style=" font-size:110%;" >Last Name</span>
-                    <input style="font-size:107%;" type="text" name="last_name" value="${applicant.getLastName()}"/><br/>
-                    <span style=" font-size:110%;" >Profession id</span>
-                    <input style=" font-size:107%;" type="text" name="profession_id"
+                    <span>Last Name</span>
+                    <input type="text" name="last_name" value="${applicant.getLastName()}"/><br/>
+                    <span>Profession id</span>
+                    <input type="text" name="profession_id"
                            value="${applicant.getProfessionId()}"/><br/>
-                    <span style=" font-size:110%;" >Entrance Year</span>
-                    <input style=" font-size:107%;" type="text" name="entrance_year"
+                    <span>Entrance Year</span>
+                    <input type="text" name="entrance_year"
                            value="${applicant.getEntranceYear()}"/>
                     <input type="hidden" name="applicant_id" value="${applicant.getId()}"/><br/>
                 </c:when>
                 <c:otherwise>
-                    <span style=" font-size:110%;" >First Name</span>
-                    <input style=" font-size:107%;" type="text" name="first_name"/><br/>
-                    <span style=" font-size:110%;" >Last Name</span>
-                    <input style=" font-size:107%;" type="text" name="last_name"/><br/>
-                    <span style=" font-size:110%;" >Profession</span>
-                    <input style=" font-size:107%;" type="text" name="profession_id"/><br/>
-                    <select>
+                    <span>First Name</span>
+                    <input type="text" name="first_name"/><br/>
+                    <span>Last Name</span>
+                    <input type="text" name="last_name"/><br/>
+                    <span>Profession</span>
+                    <select name="profession">
                     <c:forEach items="${professions}" var="profession">
-                    <option value="${profession.getProfessionName()}">${profession.getProfessionName()}</option>
+                    <option value="${profession.getId()}">${profession.getProfessionName()}</option>
                     </c:forEach>
                     </select><br/>
-                    <span style=" font-size:110%;" >Entrance Year</span>
-                    <input style=" font-size:107%;" type="text" name="entrance_year"/><br/>
+                    <span>Entrance Year</span>
+                    <input type="text" name="entrance_year"/><br/>
                 </c:otherwise>
             </c:choose>
             <input type="submit" value="Save" style= background-color:#306589;color:white;font-size:20px;/>

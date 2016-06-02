@@ -11,21 +11,20 @@
     <fieldset>
         <legend><c:out value="${title}"/></legend>
 
-        <form method="post" action="controller?command=saveSpecialitySubject">
+        <form style=" font-size:130%;" method="post" action="controller?command=saveSpecialitySubject">
             <c:choose>
                 <c:when test="${specialitySubject ne null}">
-                    <span style=" font-size:110%;" >Profession Id</span>
-                    <input style=" font-size:107%;" type="text" name="Profession_id"
-                           value="${specialitySubject.professionId}"/><br/>
-                    <span style=" font-size:110%;" >Subject Id</span>
-                    <input style=" font-size:107%;" type="text" name="Subject_id" value="${specialitySubject.getSubjectId()}"/><br/>
+                    <span>Profession Id</span>
+                    <input type="text" name="Profession_id" value="${specialitySubject.professionId}"/><br/>
+                    <span>Subject Id</span>
+                    <input type="text" name="Subject_id" value="${specialitySubject.getSubjectId()}"/><br/>
                     <input type="hidden" name="SP_SB_ID" value="${specialitySubject.getId()}"/><br/>
                 </c:when>
                 <c:otherwise>
-                    <span style=" font-size:110%;" >Profession Id</span>
-                    <input style=" font-size:107%;" type="text" name="Profession_id"/><br/>
-                    <span style=" font-size:110%;" >Subject Id</span>
-                    <input style=" font-size:107%;" type="text" name="Subject_id"/><br/>
+                    <span>Profession Id</span>
+                    <input type="text" name="Profession_id"/><br/>
+                    <span>Subject Id</span>
+                    <input type="text" name="Subject_id"/><br/>
                 </c:otherwise>
             </c:choose>
             <input type="submit" value="Save"style= background-color:#306589;color:white;font-size:20px;/>

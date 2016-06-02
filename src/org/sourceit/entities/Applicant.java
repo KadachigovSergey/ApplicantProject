@@ -5,8 +5,12 @@ public class Applicant extends Entity {
 
     private long professionId;
     private String professionName;
+    private String lastName;
+    private String firstName;
+    private int entranceYear;
 
     public Applicant(long professionId, String professionName, String lastName, String firstName, int entranceYear) {
+        this();
         this.professionId = professionId;
         this.professionName = professionName;
         this.lastName = lastName;
@@ -14,13 +18,10 @@ public class Applicant extends Entity {
         this.entranceYear = entranceYear;
     }
 
-    private String lastName;
-    private String firstName;
-    private int entranceYear;
-
     public Applicant() {
         this.id = -1;
     }
+
     public String getProfessionName() {
         return professionName;
     }

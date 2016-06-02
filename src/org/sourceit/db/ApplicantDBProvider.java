@@ -111,11 +111,9 @@ public enum ApplicantDBProvider {
         PreparedStatement preparedStatement = null;
 
         try {
-            System.out.println("getSpecialitySubject222");
             preparedStatement = connection.prepareStatement("DELETE FROM applicant WHERE applicant_id=?");
             preparedStatement.setInt(1, (int) applicantId);
             preparedStatement.executeUpdate();
-            System.out.println("getSpecialitySubject111");
         } catch (SQLException e) {
             throw new Exception(e);
         } finally {
@@ -123,7 +121,6 @@ public enum ApplicantDBProvider {
                 preparedStatement.close();
             }
         }
-        System.out.println("getSpecialitySubject333");
     }
 
 }

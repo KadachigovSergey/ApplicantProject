@@ -17,7 +17,7 @@ public class SaveApplicantCommand implements ICommand {
         try{
             applicant.setFirstName(request.getParameter("first_name"));
             applicant.setLastName(request.getParameter("last_name"));
-            applicant.setProfessionId(Long.parseLong(request.getParameter("profession_id")));
+            applicant.setProfessionId(Long.parseLong(request.getParameter("profession")));
             applicant.setEntranceYear(Integer.parseInt(request.getParameter("entrance_year")));
         }catch (NumberFormatException nfe){
             request.setAttribute("title", "Add Applicant");

@@ -11,18 +11,16 @@
     <fieldset>
         <legend><c:out value="${title}"/></legend>
 
-        <form method="post" action="controller?command=saveProfession">
+        <form style=" font-size:130%;" method="post" action="controller?command=saveProfession">
             <c:choose>
                 <c:when test="${profession ne null}">
-                    <span style=" font-size:110%;" >Profession Name</span>
-                    <input style=" font-size:107%;" type="text" name="profession_name"
-                           value="${profession.getProfessionName()}"/><br/>
+                    <span>Profession Name</span>
+                    <input type="text" name="profession_name" value="${profession.getProfessionName()}"/><br/>
                     <input type="hidden" name="profession_id" value="${profession.getId()}"/><br/>
                 </c:when>
                 <c:otherwise>
-                    <span style=" font-size:110%;" >Profession Name</span>
-                    <input style=" font-size:107%;" type="text" name="profession_name"/><br/>
-
+                    <span>Profession Name</span>
+                    <input type="text" name="profession_name"/><br/>
                 </c:otherwise>
             </c:choose>
             <input type="submit" value="Save"style= background-color:#306589;color:white;font-size:20px;/>

@@ -1,7 +1,8 @@
 package org.sourceit.db;
-
 import org.sourceit.entities.Applicant;
+import org.sourceit.entities.Profession;
 import org.testng.Assert;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
@@ -11,10 +12,19 @@ import java.util.List;
 public class ApplicantDBProviderTest {
 
     private ApplicantDBProvider provider = ApplicantDBProvider.INSTANCE;
-    @Test
 
     @BeforeSuite
      public void beforeDelete() {
+        try {
+            for (Applicant applicant : provider.getApplicants()) {
+                provider.deleteApplicant(applicant.getId());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @AfterSuite
+    public void beforeDelete1() {
         try {
             for (Applicant applicant : provider.getApplicants()) {
                 provider.deleteApplicant(applicant.getId());
@@ -49,63 +59,53 @@ public class ApplicantDBProviderTest {
                     System.out.println(tempId);
                 }
             }
-            System.out.println("ff1");
             System.out.println(applicant.getId()+" "+tempId+" "+tempId);
-            System.out.println("ff");
-
 
             Assert.assertTrue(applicant.getId() == tempId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void deleteApplicant() {
+        try {
+            provider.deleteApplicant(1L);
+
+            List applicants = provider.getApplicants();
+
+            Assert.assertTrue(applicants.size() == 0);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-//
-//    @Test
-//    public void deleteProfession() {
-//        try {
-//            provider.deleteProfession(1L);
-//
-//            List professions = provider.getProfessions();
-//
-//            Assert.assertTrue(professions.size() == 0);
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    @Test
-//    public void getProfessionsWithResult() {
-//        try {
-//            // 2
-//            provider.saveProfession(new Profession("Computer Science"));
-//            // 3
-//            provider.saveProfession(new Profession("Nuclear Physics"));
-//            // 4
-//            provider.saveProfession(new Profession("System administration"));
-//            List professions = provider.getProfessions();
-//            System.out.println(professions.size());
-//
-//            Assert.assertTrue(professions.size() == 3);
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    @Test
-//    public void updateProfession() {
-//        try {
-//            Profession profession = new Profession("Nuclear Reactors");
-//            profession.setId(3L);
-//            provider.saveProfession(profession);
-//
-//            Assert.assertEquals(provider.getProfession(3L).getProfessionName(), "Nuclear Reactors");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+
+    @Test
+    public void getApplicantWithResult() {
+        try {
+            provider.saveApplicant(new Applicant(1L,"Computer Science","Kadachigov","Serhii",2016));
+            provider.saveApplicant(new Applicant(1L,"Computer Science","Kadachigov1","Serhii1",2016));
+            provider.saveApplicant(new Applicant(1L,"Computer Science","Kadachigov2","Serhii2",2016));
+            List applicants = provider.getApplicants();
+
+            Assert.assertTrue(applicants.size() == 3);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void updateApplicant() {
+        try {
+            Applicant applicant = new Applicant(1L,"Computer Science","Kadachigov3","Serhii3",2016);
+            provider.saveApplicant(applicant);
+            Assert.assertEquals(provider.getApplicant(3L).getFirstName(), "Serhii3");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }

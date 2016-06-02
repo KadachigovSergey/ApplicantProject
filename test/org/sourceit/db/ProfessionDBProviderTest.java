@@ -1,11 +1,10 @@
     package org.sourceit.db;
 
 
-
-
     import org.testng.Assert;
     import org.sourceit.entities.Profession;
-    import org.testng.annotations.BeforeSuite;
+    import org.testng.annotations.AfterSuite;
+    import org.testng.annotations.BeforeMethod;
     import org.testng.annotations.Test;
 
 
@@ -15,10 +14,18 @@
 
         private ProfessionDBProvider provider = ProfessionDBProvider.INSTANCE;
 
-        @Test
-
-        @BeforeSuite
+        @BeforeMethod
         public void beforeDelete() {
+            try {
+                for (Profession profession : provider.getProfessions()) {
+                    provider.deleteProfession(profession.getId());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        @AfterSuite
+        public void beforeDelete1() {
             try {
                 for (Profession profession : provider.getProfessions()) {
                     provider.deleteProfession(profession.getId());
@@ -64,10 +71,8 @@
         public void deleteProfession() {
             try {
                 provider.deleteProfession(1L);
-
-                List professions = provider.getProfessions();
-
-                Assert.assertTrue(professions.size() == 0);
+                List professions1 = provider.getProfessions();
+                Assert.assertTrue(professions1.size() == 0);
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -93,7 +98,6 @@
         public void updateProfession() {
             try {
                 Profession profession = new Profession("Nuclear Reactors");
-                profession.setId(3L);
                 provider.saveProfession(profession);
 
                 Assert.assertEquals(provider.getProfession(3L).getProfessionName(), "Nuclear Reactors");

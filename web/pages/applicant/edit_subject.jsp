@@ -11,17 +11,17 @@
     <fieldset>
         <legend><c:out value="${title}"/></legend>
 
-        <form method="post" action="controller?command=saveSubject">
+        <form style=" font-size:130%;"  method="post" action="controller?command=saveSubject">
             <c:choose>
                 <c:when test="${subject ne null}">
-                    <span style=" font-size:110%;" >Subject Name</span>
-                    <input style=" font-size:107%;" type="text" name="subject_name"
+                    <span>Subject Name</span>
+                    <input type="text" name="subject_name"
                            value="${subject.getSubjectName()}"/><br/>
                     <input type="hidden" name="subject_id" value="${subject.getId()}"/><br/>
                 </c:when>
                 <c:otherwise>
-                    <span style=" font-size:110%;" >Subject Name</span>
-                    <input style=" font-size:107%;" type="text" name="subject_name"/><br/>
+                    <span>Subject Name</span>
+                    <input type="text" name="subject_name"/><br/>
                 </c:otherwise>
             </c:choose>
             <input type="submit" value="Save"style= background-color:#306589;color:white;font-size:20px;/>

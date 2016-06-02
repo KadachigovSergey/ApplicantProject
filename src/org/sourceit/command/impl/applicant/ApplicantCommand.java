@@ -15,14 +15,12 @@ public class ApplicantCommand implements ICommand {
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
 
         List<Applicant> applicants;
-
         try {
             applicants = provider.getApplicants();
         } catch (Exception e) {
             request.setAttribute("error", e);
             return "pages/error.jsp";
         }
-
         request.setAttribute("applicants", applicants);
 
         return "pages/applicant/applicants.jsp";
