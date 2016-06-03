@@ -8,8 +8,8 @@
 <body>
 <%@include file="../include/template.jsp" %>
 <div class="container">
-    <fieldset style="font-size:150%; color: #306589">
-        <legend>SpecialitySubjects</legend>
+    <fieldset>
+        <legend style="font-size:150%; color: #306589">SpecialitySubjects</legend>
         <c:choose>
         <c:when test="${specialitySubjects.size() == 0}">
             <p><c:out value="No SpecialitySubject yet"></c:out></p>

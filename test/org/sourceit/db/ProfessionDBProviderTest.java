@@ -56,7 +56,6 @@ public class ProfessionDBProviderTest {
                     tempId = temp.getId();
                 }
             }
-            assert false;
             Assert.assertTrue(profession.getId() == tempId);
 
         } catch (Exception e) {

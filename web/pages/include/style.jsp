@@ -9,14 +9,14 @@
         height: 80px;
         margin-top: -26px;
         width: 100%;
-        outline: 1px double black;
+        outline: 1px double #0a2c4d;
     }
     .div2{
         background-color: #47698d;
         height: 80px;
         margin-top: -21px;
         width: 100%;
-        outline: 1px double black;
+        outline: 1px double #0a2c4d;
     }
     .aSet{
         padding-left:12%;
@@ -27,7 +27,7 @@
     .header {
         width: 100%;
         height: 105px;
-        border: 1px solid #000000;
+        border: 1px solid #0a2c4d;
         background-color: #597da2;
     }
     .header h2 {
@@ -45,11 +45,9 @@
         list-style: none;
     }
     a {
-        /*background-color: #47698e;*/
         width: 100%;
         height: 100%;
         text-decoration: blink;
-        /*display: block;*/
         color: white;
     }
     .a1{

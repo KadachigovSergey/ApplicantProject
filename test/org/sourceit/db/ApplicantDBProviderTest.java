@@ -57,7 +57,6 @@ public class ApplicantDBProviderTest {
                     System.out.println(tempId);
                 }
             }
-            assert false;
             Assert.assertTrue(applicant.getId() == tempId);
         } catch (Exception e) {
             e.printStackTrace();

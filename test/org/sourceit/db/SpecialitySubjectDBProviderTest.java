@@ -56,7 +56,6 @@ public class SpecialitySubjectDBProviderTest {
                     tempId = temp.getId();
                 }
             }
-            assert false;
             Assert.assertTrue(specialitySubject.getId() == tempId);
 
         } catch (Exception e) {
