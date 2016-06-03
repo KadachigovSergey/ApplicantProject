@@ -36,15 +36,13 @@ public class SpecialitySubject extends Entity {
     public void setSubjectId(long subjectId) {
         this.subjectId = subjectId;
     }
+
     public String getProfessionName() {
         return professionName;
     }
 
     public void setProfessionName(String professionName) {
         this.professionName = professionName;
-    }
-    public String getSubjectName() {
-        return subjectName;
     }
 
     public void setSubjectName(String subjectName) {

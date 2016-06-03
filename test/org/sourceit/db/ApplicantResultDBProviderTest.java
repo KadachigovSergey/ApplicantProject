@@ -57,6 +57,7 @@ public class ApplicantResultDBProviderTest {
                 }
             }
 
+            assert false;
             Assert.assertTrue(applicantResult.getId() == tempId);
 
         } catch (Exception e) {

@@ -27,13 +27,6 @@ public class ApplicantResult extends Entity {
     public long getApplicantId() {
         return applicantId;
     }
-    public String getApplicantFirstName() {
-        return applicantFirstName;
-    }
-
-    public void setApplicantFirstName(String applicantFirstName) {
-        this.applicantFirstName = applicantFirstName;
-    }
 
     public String getApplicantName() {
         return applicantName;
@@ -41,10 +34,6 @@ public class ApplicantResult extends Entity {
 
     public void setApplicantName(String applicantName) {
         this.applicantName = applicantName;
-    }
-
-    public String getSubjectName() {
-        return subjectName;
     }
 
     public void setSubjectName(String subjectName) {

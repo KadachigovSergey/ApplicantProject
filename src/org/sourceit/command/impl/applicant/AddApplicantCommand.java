@@ -8,12 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 public class AddApplicantCommand implements ICommand {
-    private ProfessionDBProvider provider = ProfessionDBProvider.INSTANCE;
-
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
         request.setAttribute("title", "Add applicant");
-                List<Profession> professions = null;
+                List<Profession> professions;
 
         try {
             professions = ProfessionDBProvider.INSTANCE.getProfessions();

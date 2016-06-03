@@ -13,8 +13,8 @@ public class AddSpecialitySubjectCommand implements ICommand {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
         request.setAttribute("title", "Add applicant");
-        List<Profession> professions = null;
-        List<Subject> subjects = null;
+        List<Profession> professions;
+        List<Subject> subjects;
         try {
             subjects = SubjectDBProvider.INSTANCE.getSubjects();
             professions = ProfessionDBProvider.INSTANCE.getProfessions();

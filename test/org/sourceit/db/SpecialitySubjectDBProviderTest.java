@@ -56,7 +56,7 @@ public class SpecialitySubjectDBProviderTest {
                     tempId = temp.getId();
                 }
             }
-
+            assert false;
             Assert.assertTrue(specialitySubject.getId() == tempId);
 
         } catch (Exception e) {
@@ -69,7 +69,6 @@ public class SpecialitySubjectDBProviderTest {
         try {
             provider.deleteSpecialitySubject(1L);
             List specialitySubjects = provider.getSpecialitySubjects();
-
             Assert.assertTrue(specialitySubjects.size() == 0);
         } catch (Exception e) {
             e.printStackTrace();

@@ -16,8 +16,8 @@ public class EditSpecialitySubjectCommand implements ICommand {
     private SpecialitySubjectDBProvider provider = SpecialitySubjectDBProvider.INSTANCE;
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
-        List<Profession> professions = null;
-        List<Subject> subjects = null;
+        List<Profession> professions;
+        List<Subject> subjects;
         try {
             subjects = SubjectDBProvider.INSTANCE.getSubjects();
             professions = ProfessionDBProvider.INSTANCE.getProfessions();

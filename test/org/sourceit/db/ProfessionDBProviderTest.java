@@ -54,10 +54,9 @@ public class ProfessionDBProviderTest {
             for (Profession temp : provider.getProfessions()) {
                 if (temp.getProfessionName().equalsIgnoreCase("Computer Science")) {
                     tempId = temp.getId();
-                    temp = provider.getProfession(temp.getId());
                 }
             }
-
+            assert false;
             Assert.assertTrue(profession.getId() == tempId);
 
         } catch (Exception e) {

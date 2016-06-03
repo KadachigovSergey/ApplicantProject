@@ -5,7 +5,6 @@ import org.sourceit.db.ApplicantDBProvider;
 import org.sourceit.db.ProfessionDBProvider;
 import org.sourceit.entities.Applicant;
 import org.sourceit.entities.Profession;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -16,7 +15,7 @@ public class EditApplicantCommand implements ICommand {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
-        List<Profession> professions = null;
+        List<Profession> professions;
         try {
             Long applicantId = Long.parseLong(request.getParameter("id"));
             Applicant applicant = provider.getApplicant(applicantId);
