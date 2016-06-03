@@ -9,21 +9,21 @@
 <%@include file="../include/template.jsp" %>
 <div class="container">
     <fieldset>
-        <legend><c:out value="${title}"/></legend>
+        <legend style="font-size:150%; color: #306589"><c:out value="${title}"/></legend>
 
         <form style=" font-size:130%;" method="post" action="controller?command=saveProfession">
             <c:choose>
                 <c:when test="${profession ne null}">
                     <span>Profession Name</span>
-                    <input type="text" name="profession_name" value="${profession.getProfessionName()}"/><br/>
+                    <input class="inp" type="text" name="profession_name" value="${profession.getProfessionName()}"/><br/>
                     <input type="hidden" name="profession_id" value="${profession.getId()}"/><br/>
                 </c:when>
                 <c:otherwise>
                     <span>Profession Name</span>
-                    <input type="text" name="profession_name"/><br/>
+                    <input class="inp" type="text" name="profession_name"/><br/>
                 </c:otherwise>
             </c:choose>
-            <input type="submit" value="Save"style= background-color:#306589;color:white;font-size:20px;/>
+            <input type="submit" value="Save"style= background-color:#47698d;color:white;font-size:20px;/>
         </form>
     </fieldset>
 </div>

@@ -9,22 +9,22 @@
 <%@include file="../include/template.jsp" %>
 <div class="container">
     <fieldset>
-        <legend><c:out value="${title}"/></legend>
+        <legend style="font-size:150%; color: #306589"><c:out value="${title}"/></legend>
 
         <form style=" font-size:130%;"  method="post" action="controller?command=saveSubject">
             <c:choose>
                 <c:when test="${subject ne null}">
                     <span>Subject Name</span>
-                    <input type="text" name="subject_name"
+                    <input class="inp" type="text" name="subject_name"
                            value="${subject.getSubjectName()}"/><br/>
                     <input type="hidden" name="subject_id" value="${subject.getId()}"/><br/>
                 </c:when>
                 <c:otherwise>
                     <span>Subject Name</span>
-                    <input type="text" name="subject_name"/><br/>
+                    <input class="inp" type="text" name="subject_name"/><br/>
                 </c:otherwise>
             </c:choose>
-            <input type="submit" value="Save"style= background-color:#306589;color:white;font-size:20px;/>
+            <input type="submit" value="Save"style= background-color:#47698d;color:white;font-size:20px;/>
         </form>
     </fieldset>
 </div>

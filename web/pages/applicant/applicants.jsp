@@ -9,7 +9,7 @@
 <%@include file="../include/template.jsp" %>
 <div class="container">
     <fieldset>
-        <legend>Applicants</legend>
+        <legend style="font-size:150%; color: #306589">Applicants</legend>
         <c:choose>
         <c:when test="${applicants.size() == 0}">
             <p><c:out value="No applicants yet"></c:out></p>
@@ -58,7 +58,7 @@
     </fieldset>
     </c:otherwise>
     </c:choose>
-    <div class="add_button" style= background-color:#306589;font-size:20px;>
+    <div class="add_button" style= background-color:#47698d;font-size:20px;>
         <i class="fa fa-plus-circle"></i>
         <a href="controller?command=addApplicant">Add new Applicant</a>
     </div>

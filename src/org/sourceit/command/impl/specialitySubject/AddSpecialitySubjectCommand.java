@@ -15,7 +15,6 @@ public class AddSpecialitySubjectCommand implements ICommand {
         request.setAttribute("title", "Add applicant");
         List<Profession> professions = null;
         List<Subject> subjects = null;
-
         try {
             subjects = SubjectDBProvider.INSTANCE.getSubjects();
             professions = ProfessionDBProvider.INSTANCE.getProfessions();

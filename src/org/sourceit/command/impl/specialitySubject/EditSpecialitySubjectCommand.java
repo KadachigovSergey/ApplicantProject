@@ -16,21 +16,15 @@ public class EditSpecialitySubjectCommand implements ICommand {
     private SpecialitySubjectDBProvider provider = SpecialitySubjectDBProvider.INSTANCE;
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
+        List<Profession> professions = null;
+        List<Subject> subjects = null;
         try {
+            subjects = SubjectDBProvider.INSTANCE.getSubjects();
+            professions = ProfessionDBProvider.INSTANCE.getProfessions();
             Long specialitySubjectId = Long.parseLong(request.getParameter("id"));
             SpecialitySubject specialitySubject = provider.getSpecialitySubject(specialitySubjectId);
             request.setAttribute("specialitySubject", specialitySubject);
         } catch (Exception e) {
-            return "pages/error.jsp";
-        }
-        List<Profession> professions = null;
-        List<Subject> subjects = null;
-
-        try {
-            subjects = SubjectDBProvider.INSTANCE.getSubjects();
-            professions = ProfessionDBProvider.INSTANCE.getProfessions();
-        } catch (Exception e) {
-            request.setAttribute("error", e);
             return "pages/error.jsp";
         }
         request.setAttribute("professions1", professions);
