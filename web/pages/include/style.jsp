@@ -38,7 +38,6 @@
         width: 20.5%;
         height: 100%;
         float: left;
-        /*border: 1px solid #4cadc0;*/
         margin-top: 5px;
         background-color: #e2f1fe;
     }

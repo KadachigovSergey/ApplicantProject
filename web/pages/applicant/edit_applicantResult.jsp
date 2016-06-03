@@ -15,18 +15,34 @@
             <c:choose>
                 <c:when test="${applicantResult ne null}">
                     <span>Applicant ID</span>
-                    <input class="inp" type="text" name="applicant_id" value="${applicantResult.getApplicantId()}"/><br/>
+                    <select  class="inp" name="applicant">
+                        <c:forEach items="${applicants}" var="applicant">
+                            <option value="${applicant.getId()}">${applicant.getId()}</option>
+                        </c:forEach>
+                    </select><br/>
                     <span>Subject ID</span>
-                    <input class="inp" type="text" name="subject_id" value="${applicantResult.getSubjectId()}"/><br/>
+                    <select  class="inp" name="subject1">
+                        <c:forEach items="${subjects}" var="subject">
+                            <option value="${subject.getId()}">${subject.getSubjectName()}</option>
+                        </c:forEach>
+                    </select><br/>
                     <span>Marc</span>
                     <input class="inp" type="text" name="mark" value="${applicantResult.getMark()}"/><br/>
                     <input type="hidden" name="applicant_result_id" value="${applicantResult.getId()}"/><br/>
                 </c:when>
                 <c:otherwise>
                     <span>Applicant ID</span>
-                    <input class="inp" type="text" name="applicant_id"/><br/>
+                    <select  class="inp" name="applicant">
+                        <c:forEach items="${applicants}" var="applicant">
+                            <option value="${applicant.getId()}">${applicant.getId()}</option>
+                        </c:forEach>
+                    </select><br/>
                     <span>Subject ID</span>
-                    <input class="inp" type="text" name="subject_id"/><br/>
+                    <select  class="inp" name="subject1">
+                        <c:forEach items="${subjects}" var="subject">
+                            <option value="${subject.getId()}">${subject.getSubjectName()}</option>
+                        </c:forEach>
+                    </select><br/>
                     <span>Mark</span>
                     <input class="inp" type="text" name="mark"/><br/>
                 </c:otherwise>

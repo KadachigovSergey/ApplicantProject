@@ -13,8 +13,8 @@ public class SaveApplicantResultCommand implements ICommand {
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
         ApplicantResult applicantResult = new ApplicantResult();
         try {
-            applicantResult.setApplicantId(Long.parseLong(request.getParameter("applicant_id")));
-            applicantResult.setSubjectId(Long.parseLong(request.getParameter("subject_id")));
+            applicantResult.setApplicantId(Long.parseLong(request.getParameter("applicant")));
+            applicantResult.setSubjectId(Long.parseLong(request.getParameter("subject1")));
             applicantResult.setMark(Integer.parseInt(request.getParameter("mark")));
         }catch (NumberFormatException nfe){
         request.setAttribute("title", "Add Applicant Result");

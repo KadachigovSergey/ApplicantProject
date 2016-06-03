@@ -32,6 +32,7 @@ public enum  ApplicantResultDBProvider {
                 applicantResult = new ApplicantResult();
                 applicantResult.setId(resultSet.getInt("applicant_result_id"));
                 applicantResult.setApplicantId(resultSet.getLong("applicant_id"));
+                applicantResult.setSubjectId(resultSet.getLong("subject_id"));
                 applicantResult.setMark(resultSet.getInt("mark"));
             }
         } catch (SQLException e) {

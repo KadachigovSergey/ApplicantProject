@@ -18,9 +18,7 @@
         <table>
             <tr>
                 <th>ID</th>
-                <%--<th>Profession ID</th>--%>
                 <th>Profession Name</th>
-                <%--<th>Subject ID</th>--%>
                 <th>Subject Name</th>
                 <th>Actions</th>
             </tr>
